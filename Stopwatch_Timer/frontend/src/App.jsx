@@ -26,7 +26,7 @@ export default function App() {
       .toString()
       .padStart(2, '0')}:${milliseconds.toString().padStart(2, '0')}`;
   };
-
+  
   const handleStartPause = () => setIsRunning(!isRunning);
 
   const handleReset = () => {
