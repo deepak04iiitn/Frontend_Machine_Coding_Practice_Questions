@@ -233,10 +233,9 @@ const CustomDropdown = ({
   );
 };
 
-// Demo Component
+// Demo Component with single dropdown
 const DropdownDemo = () => {
   const [selectedValue, setSelectedValue] = useState(null);
-  const [selectedValue2, setSelectedValue2] = useState('react');
 
   const options = [
     { value: 'react', label: 'React' },
@@ -253,19 +252,6 @@ const DropdownDemo = () => {
     { value: 'lit', label: 'Lit' }
   ];
 
-  const countryOptions = [
-    { value: 'us', label: 'United States' },
-    { value: 'ca', label: 'Canada' },
-    { value: 'uk', label: 'United Kingdom' },
-    { value: 'fr', label: 'France' },
-    { value: 'de', label: 'Germany' },
-    { value: 'jp', label: 'Japan' },
-    { value: 'au', label: 'Australia' },
-    { value: 'br', label: 'Brazil' },
-    { value: 'in', label: 'India' },
-    { value: 'cn', label: 'China' }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-2xl mx-auto space-y-8">
@@ -278,47 +264,21 @@ const DropdownDemo = () => {
           </p>
         </div>
 
-        <div className="grid gap-6">
-          {/* Basic Dropdown */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 className="text-lg font-semibold mb-4">Framework Selection</h3>
-            <CustomDropdown
-              options={options}
-              value={selectedValue}
-              onChange={setSelectedValue}
-              placeholder="Choose a framework..."
-              searchPlaceholder="Search frameworks..."
-            />
-            {selectedValue && (
-              <p className="mt-3 text-sm text-gray-600">
-                Selected: <span className="font-medium">{options.find(opt => opt.value === selectedValue)?.label}</span>
-              </p>
-            )}
-          </div>
-
-          {/* Pre-selected Dropdown */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 className="text-lg font-semibold mb-4">Country Selection (Pre-selected)</h3>
-            <CustomDropdown
-              options={countryOptions}
-              value={selectedValue2}
-              onChange={setSelectedValue2}
-              placeholder="Choose a country..."
-              searchPlaceholder="Search countries..."
-            />
-          </div>
-
-          {/* Disabled Dropdown */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border">
-            <h3 className="text-lg font-semibold mb-4">Disabled State</h3>
-            <CustomDropdown
-              options={options}
-              value="react"
-              onChange={() => {}}
-              disabled={true}
-              placeholder="Disabled dropdown"
-            />
-          </div>
+        {/* Single Dropdown */}
+        <div className="bg-white p-6 rounded-lg shadow-sm border">
+          <h3 className="text-lg font-semibold mb-4">Framework Selection</h3>
+          <CustomDropdown
+            options={options}
+            value={selectedValue}
+            onChange={setSelectedValue}
+            placeholder="Choose a framework..."
+            searchPlaceholder="Search frameworks..."
+          />
+          {selectedValue && (
+            <p className="mt-3 text-sm text-gray-600">
+              Selected: <span className="font-medium">{options.find(opt => opt.value === selectedValue)?.label}</span>
+            </p>
+          )}
         </div>
 
         {/* Feature List */}
