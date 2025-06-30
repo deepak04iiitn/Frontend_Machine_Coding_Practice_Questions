@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 export default function App() {
+  
   const [products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
   const [hasMore, setHasMore] = useState(true);
