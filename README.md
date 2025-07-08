@@ -1,79 +1,123 @@
-🧠 Basic to Intermediate Challenges
-1. Todo App : 
-    Add/edit/delete tasks, mark complete, filter by status, save in localStorage.
+# 🧠 React Projects Roadmap — Basic to Advanced
 
-2. Counter with Custom Hook : 
-    Build a useCounter hook with increment, decrement, and reset functionality.
+A curated list of **hands-on React challenges** to sharpen your skills from beginner to advanced levels.  
+Each project idea focuses on a practical aspect of modern front-end development.
 
-3. Theme Toggle (Dark/Light Mode) : 
-    Toggle global theme, persist preference via localStorage.
+---
 
-4. Accordion / FAQ Component : 
-    Open one or multiple panels; handle animations and accessibility.
+## ✅ Basic to Intermediate Challenges
 
-5. Tabs Component : 
-    Show tabbed content with an active indicator and keyboard navigation.
+1. **Todo App**
+   - Add, edit, delete tasks
+   - Mark as complete
+   - Filter by status
+   - Persist in `localStorage`
 
-6. Stopwatch / Timer : 
-    Start, pause, reset; optionally show laps and store past timers.
+2. **Counter with Custom Hook**
+   - Build `useCounter` hook with increment, decrement, reset.
 
-7. Star Rating Widget : 
-    Clickable stars, hover effects, and accessibility for screen readers.
+3. **Theme Toggle (Dark/Light Mode)**
+   - Global theme toggle
+   - Persist preference with `localStorage`
 
-8. Debounced Search Bar : 
-    Debounce user input, fetch and display suggestions or results from API.
+4. **Accordion / FAQ Component**
+   - Open/close panels
+   - Handle animations & accessibility
 
-9. Tic Tac Toe Game : 
-    Create 3x3 game board using React state; handle win, draw, and restart.
+5. **Tabs Component**
+   - Tabbed content with active indicator
+   - Keyboard navigation support
 
-10. Multi-Step Form (Wizard) : 
-    Navigate across form steps, validate inputs, and persist step data.
+6. **Stopwatch / Timer**
+   - Start, pause, reset
+   - Show laps & store past timers
 
+7. **Star Rating Widget**
+   - Clickable stars, hover effects
+   - Screen reader accessibility
 
-🧩 Component Composition / UI Design Challenges
-11. Custom Dropdown / Select : 
-    Create from scratch with search, keyboard support, and outside click handling.
+8. **Debounced Search Bar**
+   - Debounce input
+   - Fetch suggestions or results from API
 
-12. Responsive Navbar with Hamburger Menu : 
-    Collapsible menu, current page highlighting, and transition animations.
+9. **Tic Tac Toe Game**
+   - 3×3 game board using state
+   - Handle win, draw, restart
 
-13. Modal / Dialog Box : 
-    Implement focus trap, outside click to close, escape key handling.
+10. **Multi-Step Form (Wizard)**
+   - Navigate steps
+   - Validate input & persist data
 
-14. Infinite Scroll List : 
-    Fetch new data as the user scrolls near the bottom using IntersectionObserver.
+---
 
-15. Paginated Table with Sorting and Filtering : 
-    Sort table headers, filter input, pagination controls, and server data.
+## 🧩 Component Composition & UI Design
 
-16. Image Gallery with Modal Preview : 
-    Click thumbnails to preview, with next/previous image navigation.
+11. **Custom Dropdown / Select**
+   - Searchable
+   - Keyboard support
+   - Outside click handling
 
-17. Calendar / Date Picker : 
-    Build a custom calendar UI to select dates or a date range.
+12. **Responsive Navbar with Hamburger**
+   - Collapsible menu
+   - Current page highlighting
+   - Smooth transitions
 
+13. **Modal / Dialog Box**
+   - Focus trap
+   - Outside click to close
+   - Escape key handling
 
-⚙️ Advanced / Complex UI Implementations
-18. Folder Hierarchy Tree View : 
-    Expand/collapse folders recursively. Use nested JSON as data source.
+14. **Infinite Scroll List**
+   - Use `IntersectionObserver` to fetch new data
 
-19. Kanban Board with Drag & Drop : 
-    Move tasks between columns using react-beautiful-dnd or native HTML5 drag-and-drop.
+15. **Paginated Table with Sorting & Filtering**
+   - Sort headers, filter input
+   - Pagination controls
+   - Fetch server data
 
-20. Virtualized List for Large Data : 
-    Render only visible items using react-window to improve performance.
+16. **Image Gallery with Modal Preview**
+   - Click thumbnails to open preview
+   - Next/previous navigation
 
-21. CRUD App with API : 
-    Full CRUD operations with form validation and UI sync.
+17. **Calendar / Date Picker**
+   - Custom calendar UI
+   - Single date or range selection
 
+---
 
-📦 Utility & UX Enhancements
-22. Notification Toast System : 
-    Display dismissible success/error toasts; manage with global state.
+## ⚙️ Advanced / Complex UI Implementations
 
-23. Breadcrumb Navigation : 
-    Show current page path (e.g., Home > Products > Electronics > TVs); update based on URL or state.
+18. **Folder Hierarchy Tree View**
+   - Expand/collapse nested folders
+   - Use nested JSON as data
 
-24. Progress Bar Component : 
-    Show task completion or scroll progress; animate smoothly with React state or requestAnimationFrame.
+19. **Kanban Board with Drag & Drop**
+   - Move tasks between columns
+   - Use `react-beautiful-dnd` or native drag & drop
+
+20. **Virtualized List for Large Data**
+   - Render visible items only
+   - Use `react-window` for performance
+
+21. **CRUD App with API**
+   - Full CRUD operations
+   - Form validation & UI sync
+
+22. **Notification Toast System**
+   - Show dismissible success/error toasts
+   - Manage with global state
+
+23. **Breadcrumb Navigation**
+   - Show current path: `Home > Products > Electronics`
+   - Sync with URL or state
+
+24. **Progress Bar Component**
+   - Task or scroll progress
+   - Smooth animation with state or `requestAnimationFrame`
+
+---
+
+## ✨ Happy Coding!
+
+> 🌟 Tackle each challenge to build a rock-solid understanding of React and modern front-end practices.
 
