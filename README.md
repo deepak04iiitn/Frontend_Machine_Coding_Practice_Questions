@@ -87,33 +87,26 @@ Each project idea focuses on a practical aspect of modern front-end development.
 
 ## ⚙️ Advanced / Complex UI Implementations
 
-18. **Folder Hierarchy Tree View**
-   - Expand/collapse nested folders
-   - Use nested JSON as data
-
-19. **Kanban Board with Drag & Drop**
-   - Move tasks between columns
-   - Use `react-beautiful-dnd` or native drag & drop
-
-20. **Virtualized List for Large Data**
-   - Render visible items only
-   - Use `react-window` for performance
-
-21. **CRUD App with API**
-   - Full CRUD operations
-   - Form validation & UI sync
-
-22. **Notification Toast System**
+18. **Notification Toast System**
    - Show dismissible success/error toasts
    - Manage with global state
 
-23. **Breadcrumb Navigation**
+19. **Progress Bar Component**
+   - Task or scroll progress
+   - Smooth animation with state or `requestAnimationFrame`
+
+20. **Breadcrumb Navigation**
    - Show current path: `Home > Products > Electronics`
    - Sync with URL or state
 
-24. **Progress Bar Component**
-   - Task or scroll progress
-   - Smooth animation with state or `requestAnimationFrame`
+21. **Kanban Board with Drag & Drop**
+   - Move tasks between columns
+   - Use `react-beautiful-dnd` or native drag & drop
+
+22. **Folder Hierarchy Tree View**
+   - Expand/collapse nested folders
+   - Use nested JSON as data
+
 
 ---
 
