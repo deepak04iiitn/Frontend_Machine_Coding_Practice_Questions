@@ -1,73 +1,79 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 export default function App() {
 
-  const [task , setTask] = useState('');
-  const [todos , setTodos] = useState([]);
-  const [editingIndex , setEditingIndex] = useState(null);
+  const [task, setTask] = useState('');
+  const [todos, setTodos] = useState([]);
+  const [editingId, setEditingId] = useState(null);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [filter, setFilter] = useState('All'); // All, Completed, Pending
-
+  const [searchTerm, setSearchTerm] = useState(''); 
 
   useEffect(() => {
     const storedTodos = localStorage.getItem('todos');
-    if(storedTodos)
-    {
+    if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
     }
-
     setHasLoaded(true);
-  } , [])
+  }, []);
 
   useEffect(() => {
-    if(hasLoaded) 
-    {
+    if (hasLoaded) {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   }, [todos, hasLoaded]);
 
   const addTodo = () => {
-    if(task.trim())
-    {
-      if(editingIndex !== null) 
-      {
-        const updatedTodos = [...todos];
-        updatedTodos[editingIndex].text = task;
+    if (task.trim()) {
+      if (editingId !== null) {
+        const updatedTodos = todos.map((todo) =>
+          todo.id === editingId ? { ...todo, text: task } : todo
+        );
         setTodos(updatedTodos);
-        setEditingIndex(null); 
-      } 
-      else 
-      {
-        setTodos([...todos, { text: task, isCompleted: false }]);
+        setEditingId(null);
+      } else {
+        const newTodo = {
+          id: Date.now().toString(), // Unique ID
+          text: task,
+          isCompleted: false
+        };
+        setTodos([...todos, newTodo]);
       }
     }
-
     setTask('');
+  };
 
-  }
+  const toggleComplete = (id) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
+    setTodos(updatedTodos);
+  };
 
-  const toggleComplete = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    setTodos(newTodos);
-  }
+  const editTask = (id) => {
+    const todoToEdit = todos.find((todo) => todo.id === id);
+    if (todoToEdit) {
+      setTask(todoToEdit.text);
+      setEditingId(id);
+    }
+  };
 
-  const editTask = (index , todo) => {
-    setEditingIndex(index);
-    setTask(todo.text);
-  }
+  const deleteTodo = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
 
-  const deleteTodo = (index) => {
-    const newTodos = todos.filter((item , i) => i !== index);
-    setTodos(newTodos);
-  }
-
-  const filteredTodos = todos.filter((todo) => {
-    if(filter === 'All') return true;
-    if(filter === 'Completed') return todo.isCompleted;
-    if(filter === 'Pending') return !todo.isCompleted;
-    return true;
-  });
+  
+  const filteredTodos = todos
+    .filter((todo) => {
+      if (filter === 'All') return true;
+      if (filter === 'Completed') return todo.isCompleted;
+      if (filter === 'Pending') return !todo.isCompleted;
+      return true;
+    })
+    .filter((todo) =>
+      todo.text.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   return (
     <div className="p-6">
@@ -83,25 +89,43 @@ export default function App() {
           className="ml-4 border-2 px-4 py-1 bg-blue-500 text-white cursor-pointer"
           onClick={addTodo}
         >
-          {editingIndex !== null ? 'Update' : 'Add'}
+          {editingId !== null ? 'Update' : 'Add'}
         </button>
+      </div>
+
+      {/* 🔍 Search Bar */}
+      <div className="mt-4">
+        <span className="text-lg">Search: </span>
+        <input
+          type="text"
+          className="border px-2 py-1"
+          placeholder="Search tasks..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
 
       <div className="mt-6 space-x-4">
         <button
-          className={`border cursor-pointer px-3 py-1 ${filter === 'All' ? 'bg-gray-300' : ''}`}
+          className={`border cursor-pointer px-3 py-1 ${
+            filter === 'All' ? 'bg-gray-300' : ''
+          }`}
           onClick={() => setFilter('All')}
         >
           All
         </button>
         <button
-          className={`border cursor-pointer px-3 py-1 ${filter === 'Completed' ? 'bg-gray-300' : ''}`}
+          className={`border cursor-pointer px-3 py-1 ${
+            filter === 'Completed' ? 'bg-gray-300' : ''
+          }`}
           onClick={() => setFilter('Completed')}
         >
           Completed
         </button>
         <button
-          className={`border cursor-pointer px-3 py-1 ${filter === 'Pending' ? 'bg-gray-300' : ''}`}
+          className={`border cursor-pointer px-3 py-1 ${
+            filter === 'Pending' ? 'bg-gray-300' : ''
+          }`}
           onClick={() => setFilter('Pending')}
         >
           Pending
@@ -111,29 +135,29 @@ export default function App() {
       <div className="mt-8">
         {filteredTodos.length > 0 ? (
           <ul className="list-disc ml-5">
-            {filteredTodos.map((todo, index) => (
-              <li key={index} className="mb-4">
+            {filteredTodos.map((todo) => (
+              <li key={todo.id} className="mb-4">
                 <span className={todo.isCompleted ? 'line-through' : ''}>
                   {todo.text}
                 </span>
 
                 <button
                   className="ml-6 border px-3 py-1 cursor-pointer"
-                  onClick={() => toggleComplete(index)}
+                  onClick={() => toggleComplete(todo.id)}
                 >
                   Done
                 </button>
 
                 <button
                   className="ml-4 border px-3 py-1 cursor-pointer"
-                  onClick={() => editTask(index, todo)}
+                  onClick={() => editTask(todo.id)}
                 >
                   Edit
                 </button>
 
                 <button
                   className="ml-4 border px-3 py-1 cursor-pointer"
-                  onClick={() => deleteTodo(index)}
+                  onClick={() => deleteTodo(todo.id)}
                 >
                   Delete
                 </button>
@@ -141,7 +165,7 @@ export default function App() {
             ))}
           </ul>
         ) : (
-          <p className="ml-5 text-gray-500">No tasks found for selected filter.</p>
+          <p className="ml-5 text-gray-500">No tasks found for selected filter or search term.</p>
         )}
       </div>
     </div>

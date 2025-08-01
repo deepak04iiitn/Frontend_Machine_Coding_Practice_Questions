@@ -507,3 +507,114 @@ const Simple3StepForm = () => {
 };
 
 export default Simple3StepForm;
+
+
+
+
+
+
+// import React, { useState } from 'react';
+
+// export default function MultiStepForm() {
+//   const [step, setStep] = useState(1);
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     email: '',
+//     age: '',
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData((prev) => ({
+//       ...prev,
+//       [e.target.name]: e.target.value,
+//     }));
+//   };
+
+//   const nextStep = () => setStep((prev) => prev + 1);
+//   const prevStep = () => setStep((prev) => prev - 1);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log('Submitted Data:', formData);
+//     alert('Form submitted!');
+//   };
+
+//   return (
+//     <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
+//       <h2 className="text-2xl font-bold mb-4">Multi-Step Form</h2>
+
+//       <form onSubmit={handleSubmit}>
+//         {step === 1 && (
+//           <div>
+//             <label className="block mb-2">Name:</label>
+//             <input
+//               name="name"
+//               value={formData.name}
+//               onChange={handleChange}
+//               className="w-full px-3 py-2 border rounded"
+//               required
+//             />
+//           </div>
+//         )}
+
+//         {step === 2 && (
+//           <div>
+//             <label className="block mb-2">Email:</label>
+//             <input
+//               name="email"
+//               type="email"
+//               value={formData.email}
+//               onChange={handleChange}
+//               className="w-full px-3 py-2 border rounded"
+//               required
+//             />
+//           </div>
+//         )}
+
+//         {step === 3 && (
+//           <div>
+//             <label className="block mb-2">Age:</label>
+//             <input
+//               name="age"
+//               type="number"
+//               value={formData.age}
+//               onChange={handleChange}
+//               className="w-full px-3 py-2 border rounded"
+//               required
+//             />
+//           </div>
+//         )}
+
+//         {/* Navigation Buttons */}
+//         <div className="flex justify-between mt-6">
+//           {step > 1 && (
+//             <button
+//               type="button"
+//               onClick={prevStep}
+//               className="px-4 py-2 bg-gray-300 rounded"
+//             >
+//               Previous
+//             </button>
+//           )}
+//           {step < 3 && (
+//             <button
+//               type="button"
+//               onClick={nextStep}
+//               className="ml-auto px-4 py-2 bg-blue-500 text-white rounded"
+//             >
+//               Next
+//             </button>
+//           )}
+//           {step === 3 && (
+//             <button
+//               type="submit"
+//               className="ml-auto px-4 py-2 bg-green-600 text-white rounded"
+//             >
+//               Submit
+//             </button>
+//           )}
+//         </div>
+//       </form>
+//     </div>
+//   );
+// }
