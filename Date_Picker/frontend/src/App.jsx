@@ -53,7 +53,7 @@ export default function App() {
   const getRangeCount = () => {
     if (range.start && range.end) {
       const diff = Math.ceil(
-        (range.end - range.start) / (1000 * 60 * 60 * 24)
+        (range.end - range.start) / (1000 * 60 * 60 * 24)  // milliseconds to days
       ) + 1;
       return diff;
     }

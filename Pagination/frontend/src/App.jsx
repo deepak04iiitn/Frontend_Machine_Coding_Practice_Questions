@@ -20,7 +20,7 @@ export default function LocalTable() {
     fetchAllData();
   }, []);
 
-  // 1️⃣ FILTER
+  // 1️⃣ FILTER/SEARCH
   const filtered = rawData.filter(item =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.description.toLowerCase().includes(searchTerm.toLowerCase())
