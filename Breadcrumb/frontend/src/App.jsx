@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Router>
       <div className="app">
-        <h1>RoadsideCoder Store</h1>
+        <h1>Products Store</h1>
         <Breadcrumbs />
         <hr />
         <Routes>
