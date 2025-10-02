@@ -522,21 +522,52 @@ export default Simple3StepForm;
 //     email: '',
 //     age: '',
 //   });
+//   const [errors, setErrors] = useState({}); // store error messages
 
 //   const handleChange = (e) => {
 //     setFormData((prev) => ({
 //       ...prev,
 //       [e.target.name]: e.target.value,
 //     }));
+
+//     // clear error when user types
+//     setErrors((prev) => ({
+//       ...prev,
+//       [e.target.name]: '',
+//     }));
 //   };
 
-//   const nextStep = () => setStep((prev) => prev + 1);
+//   const validateStep = () => {
+//     let newErrors = {};
+
+//     if (step === 1 && !formData.name.trim()) {
+//       newErrors.name = 'Name is required';
+//     }
+//     if (step === 2 && !formData.email.trim()) {
+//       newErrors.email = 'Email is required';
+//     }
+//     if (step === 3 && !formData.age.trim()) {
+//       newErrors.age = 'Age is required';
+//     }
+
+//     setErrors(newErrors);
+//     return Object.keys(newErrors).length === 0; // valid if no errors
+//   };
+
+//   const nextStep = () => {
+//     if (validateStep()) {
+//       setStep((prev) => prev + 1);
+//     }
+//   };
+
 //   const prevStep = () => setStep((prev) => prev - 1);
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
-//     console.log('Submitted Data:', formData);
-//     alert('Form submitted!');
+//     if (validateStep()) {
+//       console.log('Submitted Data:', formData);
+//       alert('Form submitted!');
+//     }
 //   };
 
 //   return (
@@ -554,6 +585,9 @@ export default Simple3StepForm;
 //               className="w-full px-3 py-2 border rounded"
 //               required
 //             />
+//             {errors.name && (
+//               <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+//             )}
 //           </div>
 //         )}
 
@@ -568,6 +602,9 @@ export default Simple3StepForm;
 //               className="w-full px-3 py-2 border rounded"
 //               required
 //             />
+//             {errors.email && (
+//               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+//             )}
 //           </div>
 //         )}
 
@@ -582,6 +619,9 @@ export default Simple3StepForm;
 //               className="w-full px-3 py-2 border rounded"
 //               required
 //             />
+//             {errors.age && (
+//               <p className="text-red-500 text-sm mt-1">{errors.age}</p>
+//             )}
 //           </div>
 //         )}
 
