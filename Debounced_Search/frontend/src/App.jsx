@@ -67,3 +67,20 @@ export default function App() {
     </div>
   );
 }
+
+
+
+
+// Cleanup: return () => clearTimeout(timer)
+
+// This is the heart of debouncing.
+
+// Whenever searchTerm changes again (i.e., user types another character before 2s):
+
+// The cleanup function runs
+
+// It cancels the previous timer
+
+// This prevents the API call from happening
+
+// So the API only triggers for the latest change, not for each keystroke.
