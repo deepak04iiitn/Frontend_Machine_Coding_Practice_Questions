@@ -36,43 +36,44 @@ export default function SimpleProgressBar() {
   };
 
   return (
-    <div style={{ padding: 40 }}>
-      <div
-        style={{
-          height: 25,
-          width: "100%",
-          background: "#ddd",
-          borderRadius: 10,
-          overflow: "hidden",
-          marginBottom: 20
-        }}
-      >
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+      {/* Progress Bar */}
+      <div className="w-full max-w-lg bg-gray-300 rounded-full h-6 overflow-hidden mb-6">
         <div
-          style={{
-            height: "100%",
-            width: `${progress}%`,
-            background: "blue",
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
+          className="bg-blue-500 h-6 text-white text-sm font-semibold flex items-center justify-center transition-all duration-150"
+          style={{ width: `${progress}%` }}
         >
           {progress}%
         </div>
       </div>
 
-      <button onClick={start} disabled={running || progress >= 100}>
-        Start
-      </button>
+      {/* Buttons */}
+      <div className="flex gap-4">
+        <button
+          onClick={start}
+          disabled={running || progress >= 100}
+          className={`px-4 py-2 rounded text-white 
+            ${running || progress >= 100 ? "bg-green-300 cursor-not-allowed" : "bg-green-500 hover:bg-green-600"}
+          `}
+        >
+          Start
+        </button>
 
-      <button onClick={togglePauseResume} disabled={progress >= 100} style={{ marginLeft: 10 }}>
-        {running ? "Pause" : "Resume"}
-      </button>
+        <button
+          onClick={togglePauseResume}
+          disabled={progress >= 100}
+          className="px-4 py-2 rounded text-white bg-yellow-500 hover:bg-yellow-600"
+        >
+          {running ? "Pause" : "Resume"}
+        </button>
 
-      <button onClick={restart} style={{ marginLeft: 10 }}>
-        Restart
-      </button>
+        <button
+          onClick={restart}
+          className="px-4 py-2 rounded text-white bg-red-500 hover:bg-red-600"
+        >
+          Restart
+        </button>
+      </div>
     </div>
   );
 }
